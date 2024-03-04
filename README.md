@@ -1,4 +1,4 @@
-# flaterbatash
+# flutterBatash
 ## FlutterBatash: Weather App with Lottie Animations
 
 **FlutterBatash** is a simple weather app built with Flutter and Dart that showcases the use of Lottie animations for a visually appealing and informative user experience.
