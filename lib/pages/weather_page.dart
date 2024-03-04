@@ -11,14 +11,12 @@ class WeatherPage extends StatefulWidget {
 }
 
 class _WeatherPageState extends State<WeatherPage> {
-
   // api key
   final _weatherService = WeatherService('91c418fd3fb6216874bfc2d58e9b5506');
   Weather? _weather;
 
   // fetch weather
   _fetchWeather() async {
-    
     String cityName = await _weatherService.getCurrentCity();
 
     try {
@@ -28,35 +26,35 @@ class _WeatherPageState extends State<WeatherPage> {
       });
     } catch (e) {
       setState(() {
-    _weather = null; // Reset to null on error
-  });
+        _weather = null; // Reset to null on error
+      });
       print(e); // Log the error for debugging
     }
   }
 
   // weather animation
-String getWeatherAnimation(String? mainCondition) {
-  if (mainCondition == null) return 'assets/sunny.json';
+  String getWeatherAnimation(String? mainCondition) {
+    if (mainCondition == null) return 'assets/sunny.json';
 
-  switch (mainCondition) {
-    case "Clear":
-      return "assets/sunny.json";
-    case "Clouds":
-      return "assets/cloudy.json";
-    case "Drizzle":
-      return "assets/drizzle.json";
-    case "Rain":
-      return "assets/rainy.json";
-    case "Snow":
-      return "assets/snow.json";
-    case "Thunderstorm":
-      return "assets/thunderstorm.json";
-    case "shower rain":
-      return "assets/rainy.json";
-    default:
-      return "assets/sunny.json";
+    switch (mainCondition) {
+      case "Clear":
+        return "assets/sunny.json";
+      case "Clouds":
+        return "assets/cloudy.json";
+      case "Drizzle":
+        return "assets/drizzle.json";
+      case "Rain":
+        return "assets/rainy.json";
+      case "Snow":
+        return "assets/snow.json";
+      case "Thunderstorm":
+        return "assets/thunderstorm.json";
+      case "shower rain":
+        return "assets/rainy.json";
+      default:
+        return "assets/sunny.json";
+    }
   }
-}
 
   // init state
 
@@ -75,7 +73,6 @@ String getWeatherAnimation(String? mainCondition) {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-
             // city name
             Text(_weather?.cityName ?? "loading city.."),
 
@@ -86,7 +83,7 @@ String getWeatherAnimation(String? mainCondition) {
             Text('${_weather?.temperature.round()}°C'),
 
             // weathr condition
-            Text (_weather?.mainCondition ?? "")
+            Text(_weather?.mainCondition ?? "")
           ],
         ),
       ),
